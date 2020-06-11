@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  
+  index_name([Rails.env,base_class.to_s.pluralize.underscore].join('_'))
+
 
   settings do
     mappings dynamic: false do
