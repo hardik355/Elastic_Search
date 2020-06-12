@@ -1,21 +1,11 @@
 development: &default
-  host: 'http://localhost:9200/'
-  transport_options:
-    request:
-      timeout: !!integer 300
+  host: "http://localhost:9200/"
+  log: true
 test:
-  network.bind_host: localhost
+  host: "http://localhost:9200/"
+  network.host: 127.0.0.1
+  transport.tcp.port: 9200
+  http.port: 9200
 
-staging:
-  <<: *default
-  
 production:
-  host: 'http://10.50.11.50/'
-  transport_options:
-    request:
-      timeout: !!integer 300
-
-
-
-
-
+  host: "http://localhost:9200/"
